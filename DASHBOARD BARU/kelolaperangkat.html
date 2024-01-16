@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/multi.png">
+    <link rel="icon" type="image/png" href="../assets/img/multi.png">
+    <title>
+      POS
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+  </head> 
+
+<body class="g-sidenav-show   bg-grey-100">
+  <div class="max-height-100 bg-i position-absolute w-100"
+  style="background-image: url('https://s.tmimgcdn.com/scr/1200x750/250600/background-wave-water-blue-vector-design-v10_250624-original.jpg'); width: 100%; min-height: 50vh; background-repeat: no-repeat; background-size: cover;">
+  </div>
+    <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
+      <div class="sidenav-header">
+        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+          <img src="../assets/img/Logo pt multi.png" class="navbar-brand-img h-100 mt-3 ms-4" alt="main_logo">
+      </div>
+      <hr class="horizontal dark mt-0">
+      <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="../pages/request-pemasangan.html">
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+              </div>
+              <span class="nav-link-text ms-1">Request Pemasangan</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="../pages/kelolaperangkat.html">
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+              </div>
+              <span class="nav-link-text ms-1">Kelola Perangkat</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="../pages/laporanpengaduan.html">
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+              </div>
+              <span class="nav-link-text ms-1">Laporan Pengaduan</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <main class="main-content position-relative border-radius-lg ">
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
+        <div class="container-fluid py-1 px-3">
+          <nav aria-label="breadcrumb">
+            <h5 class="font-weight-bolder text-white mt-4 mb-0">DASHBOARD Petugas</h5>
+          </nav>
+          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          </div>
+        </div>
+      </nav>
+
+      <div class="row mt-4 me-4 ms-3">
+        <div class="col-lg-24 mb-lg-0 mb-4">
+          <div class="card ">
+            <div class="card-header pb-0 p-3">
+              <div class="d-flex justify-content-between">
+                <h5 class="mb-2">Detail Perangkat - Mutia Alifina Anisari</h5>
+              </div>
+              <div class="card-header pb-0 p-5">
+                <p class="mb-2" style="font-weight: lighter;">STATUS DEVICE</p>
+              </div>
+
+              <!-- //MAsukin icon disini -->
+              <div class="container-fluid py-4">
+                <div class="row mt-4">
+                  <div class="col-12">
+                    <style>
+                      .form-group {
+                        display: grid;
+                        grid-template-columns: 1fr 7fr;
+                        gap: 10px;
+                      }
+                    
+                      .form-group label {
+                        white-space: nowrap;
+                      }
+                    </style>
+                    <div class="row mt-2">
+                      <div class="col-md-3">
+                        <div class="card bg-dark">
+                          <button class="btn btn-info text-dark" onclick="showLokasiPemasangan()">Lokasi Pemasangan</button>
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <div class="card bg-dark">
+                          <button class="btn btn-success text-dark" onclick="showFormPemasangan()">FormPemasangan</button>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card bg-dark">
+                          <button class="btn btn-info text-dark" onclick="showFormIntegrasi()">Form Integrasi</button>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card bg-dark">
+                          <button class="btn btn-success text-dark" onclick="showKonfirmasiPelanggan()">Konfirmasi Pelanggan</button>
+                        </div>
+                      </div>
+                    
+                
+                      <div id="FormPemasangan" class="card mb-4" style="display: none;">
+                        <div class="card-header pb-0">
+                          <h6>Formulir Pemasangan</h6>
+                          </div>
+                          <br>
+                          <div class="card-header pb-0">
+                            <p>INFORMASI DEVICE</p>
+                            </div>
+                            <br>
+                        <div class="card-body px-0 pt-0">
+                          <form>
+                            <div class="form-group px-3">
+                              <label for="orderID">Nama Device</label>
+                              <input type="text" class="form-control" id="orderID" name="orderID" value="device=bima12-30-Ujung Berung-13" readonly>
+                            </div>
+                            <div class="card-header pb-0">
+                              <p>FOTO PEMASANGAN</p>
+                              </div>
+                              <br>
+                              <P>Foto Device yang sudah terpasang</P>
+                            </div>
+                          </form>
+                            <div class="card-body px-0 pt-0">
+                            <form>
+                              <div class="form-group px-3">
+                                <label for="orderID">Choose File</label>
+                                <input type="text" class="form-control" id="orderID" name="orderID" value="No file chosen" readonly>
+                              </div>
+                            </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+
+
+                        <div id="FormIntegrasi" class="card mb-4" style="display: none;">
+                                <div class="card-header pb-0">
+                                  <h6>Formulir Pemasangan</h6>
+                                </div>
+                                <br>
+                                <p>DATA DEVICE</p>
+                                <div class="card-body px-0 pt-0">
+                                  <form>
+                                    <div class="form-group px-3 text-dark">
+                                      <label for="nama">Device UID</label>
+                                      <input type="text" class="form-control" id="nama" name="nama" value="8CF957200007491C" readonly>
+                                    </div>
+                                    <div class="form-group px-3">
+                                      <label for="alamat">Device EUI</label>
+                                      <input type="text" class="form-control" id="nama" name="nama" value="gBkR6zu3TbKNeCy-" readonly>
+                                    </div>
+                                    <div class="form-group px-3">
+                                      <label for="golongan">Subscribe Link</label>
+                                      <input type="text" class="form-control" id="golonganinfo" name="golongan" value="https:/example-link.com" readonly>
+                                    </div>
+                                    <div class="form-group px-3">
+                                      <label for="ukuran">App Key</label>
+                                      <input type="text" class="form-control" id="ukuran" name="ukuran" value="gBkR6zu3TbKNeCy-" readonly>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                              <div id="KonfirmasiPelanggan" class="card mb-4" style="display: none;">
+                                <div class="card-header pb-0">
+                                  <h6>Formulir Pemasangan</h6>
+                                </div>
+                                <br>
+                                <p>DATA DEVICE</p>
+                                <div class="card-body px-0 pt-0">
+                                  <form>
+                                    <div class="form-group px-3 text-dark">
+                                      <label for="nama">Device UID</label>
+                                      <input type="text" class="form-control" id="nama" name="nama" value="8CF957200007491C" readonly>
+                                    </div>
+                                    <div class="form-group px-3">
+                                      <label for="alamat">Device EUI</label>
+                                      <input type="text" class="form-control" id="nama" name="nama" value="gBkR6zu3TbKNeCy-" readonly>
+                                    </div>
+                                    <div class="form-group px-3">
+                                      <label for="golongan">Subscribe Link</label>
+                                      <input type="text" class="form-control" id="golonganinfo" name="golongan" value="https:/example-link.com" readonly>
+                                    </div>
+                                    <div class="form-group px-3">
+                                      <label for="ukuran">App Key</label>
+                                      <input type="text" class="form-control" id="ukuran" name="ukuran" value="gBkR6zu3TbKNeCy-" readonly>
+                                    </div>
+                                  </form>
+                                </div>
+                                <div class="mapouter">
+                                  <p>LOKASI DEVICE</p>
+                                  <div class="gmap_canvas">
+                                    <iframe
+                                      src="https://maps.google.com/maps?q=telkom%20university&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                                      frameborder="0" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+                                    <style>
+                                      .mapouter {
+                                        position: relative;
+                                        height: 480px;
+                                        width: 60%;
+                                        background: #fff;
+                                        border-radius: 8px;
+                                      }
+                    
+                                      .mapouter {
+                                        border: 1px solid #ddd;
+                                      }
+                    
+                                      .maprouter a {
+                                        color: #fff !important;
+                                        position: absolute !important;
+                                        top: 0 !important;
+                                        z-index: 0 !important;
+                                      }
+                    
+                                      .gmap_canvas {
+                                        overflow: hidden;
+                                        height: 420px;
+                                        width: 100%;
+                                        border-radius: 5px;
+                                      }
+                    
+                                      .gmap_canvas iframe {
+                                        position: relative;
+                                        z-index: 2;
+                                        border-radius: 8px;
+                                      }
+                                    </style>
+                                  </div>
+
+                            <!-- <div class="form-group px-3">
+                              <label for="status">Status</label>
+                              <input type="text" class="form-control" id="status" name="status" value="Berhasil" readonly>
+                            </div>
+                            <div class="form-group px-3">
+                              <label for="tanggal">Tanggal Transaksi</label>
+                              <input type="text" class="form-control" id="tanggal" name="tanggal" value="28-08-23" readonly>
+                            </div>
+                            <div class="form-group px-3">
+                              <label for="jumlahTagihan">Jumlah Tagihan</label>
+                              <input type="text" class="form-control" id="jumlahTagihan" name="jumlahTagihan" value="500000" readonly>
+                            </div>
+                            <div class="form-group px-3">
+                              <label for="jumlahToken">Jumlah Token</label>
+                              <input type="text" class="form-control" id="jumlahToken" name="jumlahToken" value="21,74m3" readonly>
+                            </div>
+                            <div class="form-group px-3">
+                              <label for="golongan">Golongan</label>
+                              <input type="text" class="form-control" id="golongantransaksi" name="golongan" value="Rumah Tangga 2A3" readonly>
+                            </div>
+                            <div class="form-group px-3">
+                              <label for="alamat">Alamat</label>
+                              <textarea class="form-control" id="alamat" name="alamattransaksi" readonly>Jl. Gudang Utara No.25</textarea>
+                            </div>
+                            <div class="form-group px-3">
+                              <label for="generate-token">Token</label>
+                              <textarea class="form-control" id="generate-token" name="generatetoken" readonly>4456 5321 8970 8301</textarea>
+                            </div> -->
+                          </form>              
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <script>
+                  function showLokasiPemasangan() {
+                    document.getElementById("LokasiPemasangan").style.display = "none";
+                    document.getElementById("LokasiPemasangan").style.display = "block";
+                  }
+                  function showFormPemasangan() {
+                    document.getElementById("FormPemasangan").style.display = "none";
+                    document.getElementById("FormPemasangan").style.display = "block";
+                  }
+                  function showFormIntegrasi() {
+                    document.getElementById("FormIntegrasi").style.display = "none";
+                    document.getElementById("FormIntegrasi").style.display = "block";
+                  }
+                  function showKonfirmasiPelanggan() {
+                    document.getElementById("KonfirmasiPelanggan").style.display = "none";
+                    document.getElementById("KonfirmasiPelanggan").style.display = "block";
+                  }
+                </script>
+                </div>
+              </div>
+              <div id="LokasiPemasangan" class="card mb-4" style="display: none;">
+              <div class="mapouter">
+                <div class="gmap_canvas">
+                  <iframe
+                    src="https://maps.google.com/maps?q=telkom%20university&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                    frameborder="0" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+                  <style>
+                    .mapouter {
+                      position: relative;
+                      height: 480px;
+                      width: 60%;
+                      background: #fff;
+                      border-radius: 8px;
+                    }
+  
+                    .mapouter {
+                      border: 1px solid #ddd;
+                    }
+  
+                    .maprouter a {
+                      color: #fff !important;
+                      position: absolute !important;
+                      top: 0 !important;
+                      z-index: 0 !important;
+                    }
+  
+                    .gmap_canvas {
+                      overflow: hidden;
+                      height: 420px;
+                      width: 100%;
+                      border-radius: 5px;
+                    }
+  
+                    .gmap_canvas iframe {
+                      position: relative;
+                      z-index: 2;
+                      border-radius: 8px;
+                    }
+                  </style>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script>
+    var ctx1 = document.getElementById("chart-line").getContext("2d");
+
+    var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
+    new Chart(ctx1, {
+      type: "line",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Mobile apps",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#5e72e4",
+          backgroundColor: gradientStroke1,
+          borderWidth: 3,
+          fill: true,
+          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+          maxBarThickness: 6
+
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#fbfbfb',
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#ccc',
+              padding: 20,
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+  </script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+</body>
+
+</html>
